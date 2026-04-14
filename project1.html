@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Social Media Dashboard</title>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<style>
+body{
+font-family: Arial;
+margin:0;
+background:#f4f6f9;
+}
+
+header{
+background:#1e2a38;
+color:white;
+padding:15px;
+text-align:center;
+}
+
+.sidebar{
+width:220px;
+height:100vh;
+background:#2f3e4d;
+position:fixed;
+color:white;
+padding-top:20px;
+}
+
+.sidebar a{
+display:block;
+color:white;
+padding:12px;
+text-decoration:none;
+}
+
+.sidebar a:hover{
+background:#1e2a38;
+}
+
+.main{
+margin-left:230px;
+padding:20px;
+}
+
+.card{
+background:white;
+padding:20px;
+margin-bottom:20px;
+border-radius:8px;
+box-shadow:0 0 10px rgba(0,0,0,0.1);
+}
+
+form input, form textarea{
+width:100%;
+padding:10px;
+margin:8px 0;
+}
+
+button{
+background:#007bff;
+color:white;
+border:none;
+padding:10px;
+cursor:pointer;
+border-radius:4px;
+}
+
+button:hover{
+background:#0056b3;
+}
+
+.profile{
+float:right;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<h2>Social Media Analytics Dashboard</h2>
+<div class="profile">Welcome, User</div>
+</header>
+
+<div class="sidebar">
+<a href="#">Dashboard</a>
+<a href="#">Analytics</a>
+<a href="#">Schedule Post</a>
+<a href="#">Profile</a>
+<a href="#">Logout</a>
+</div>
+
+<div class="main">
+
+<div class="card">
+<h3>Platform Metrics</h3>
+<canvas id="myChart"></canvas>
+</div>
+
+<div class="card">
+<h3>Schedule New Post</h3>
+
+<form>
+<label>Platform</label>
+<input type="text" placeholder="Twitter / Instagram">
+
+<label>Post Content</label>
+<textarea rows="4" placeholder="Write your post..."></textarea>
+
+<label>Schedule Date</label>
+<input type="datetime-local">
+
+<button type="submit">Schedule Post</button>
+</form>
+
+</div>
+
+<div class="card">
+<h3>Recent Activity</h3>
+<ul>
+<li>Instagram post published</li>
+<li>Twitter analytics updated</li>
+<li>New follower gained</li>
+</ul>
+</div>
+
+</div>
+
+<script>
+
+const ctx = document.getElementById('myChart').getContext('2d');
+
+new Chart(ctx,{
+type:'bar',
+data:{
+labels:['Twitter','Instagram','Facebook','LinkedIn'],
+datasets:[{
+label:'Followers',
+data:[1200,1900,800,600]
+}]
+}
+});
+
+</script>
+
+</body>
+</html>
